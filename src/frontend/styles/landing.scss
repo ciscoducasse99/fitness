@@ -1,0 +1,140 @@
+$dark-overlay: rgba(0, 0, 0, 0.6);
+$dark-red: rgb(173, 12, 12);
+
+// LANDING HEADER
+
+// background-color: #0070f3;
+// box-shadow: 0 4px 14px 0 rgb(0 118 255 / 39%);
+
+.text-darkred {
+  color: $dark-red;
+}
+
+.btn-danger {
+  background: $dark-red;
+}
+
+// NAVBAR
+.custom-navbar {
+  background: transparent;
+}
+.activated {
+  background: $dark-red;
+}
+
+.landing-header {
+  height: 100%;
+  width: 100%;
+  background-image: url("../images/pexels-binyamin-mellish-17840.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  //background-attachment: fixed;
+
+  .landing-header-overlay {
+    background-color: $dark-overlay;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .landing-header-text {
+      text-align: center;
+    }
+
+    .text-darkred {
+      color: $dark-red;
+    }
+  }
+}
+
+// REASONINGS
+
+.reasonings-section {
+  min-height: 220px;
+  color: $dark-red;
+
+  .reasonings-content {
+    margin-top: -100px;
+    background: white;
+  }
+
+  .cc-rounded {
+    border-radius: 18px;
+  }
+
+  i {
+    color: black;
+  }
+
+  p {
+    color: black;
+  }
+}
+
+//Quote
+.quote-section {
+  min-height: 380px;
+  background-image: linear-gradient(black, rgb(173, 12, 12));
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.testimonals-section {
+  min-height: 400px;
+}
+
+.footer-section {
+  min-height: 150px;
+  background: black;
+  color: white;
+}
+
+.contact-form-section {
+  background-image: linear-gradient(white, rgb(0, 0, 0));
+  min-height: 500px;
+}
+
+.product-scroller {
+  position: relative;
+  z-index: 2;
+  overflow-y: hidden;
+
+  nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+
+    margin-bottom: -10px;
+  }
+
+  .product-img {
+    height: 12rem;
+    width: 7rem;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    background: transparent;
+  }
+}
+
+.modal-footer {
+  padding-bottom: calc(0.1rem + env(safe-area-inset-bottom));
+}
+
+.products-section {
+  min-height: 400px;
+  margin-top: 30px;
+}
