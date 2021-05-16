@@ -10,7 +10,6 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
-  ModalFooter,
 } from "reactstrap";
 import "../../styles/landing.scss";
 import Div100vh from "react-div-100vh";
