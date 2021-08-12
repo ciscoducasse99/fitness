@@ -18,8 +18,6 @@ const CCNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [navbar, setNavbar] = useState(false);
 
-  const toggle = () => setIsOpen(!isOpen);
-
   const changeNavbar = () => {
     if (window.scrollY >= 60) {
       setNavbar(true);
@@ -27,7 +25,13 @@ const CCNavbar = () => {
       setNavbar(false);
     }
   };
+
   window.addEventListener("scroll", changeNavbar);
+
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <Navbar
       className={"fixed-top custom-navbar " + (navbar ? "activated" : "")}
@@ -52,28 +56,48 @@ const CCNavbar = () => {
               toggle={toggle}
               close={<i className="fas fa-times fa-2x" onClick={toggle} />}
             >
-              <h3>Coach Chris Training</h3>
+              Coach Chris Training
             </ModalHeader>
             <ModalBody className="h-75 d-flex align-items-center justify-content-center flex-column">
-              <h2 className="my-4">Products</h2>
-              <h2 className="my-4">Schedule An Appointment</h2>
-              <h2 className="my-4">Make A Payment</h2>
+              <Nav vertical className="text-center">
+                <NavItem onClick={toggle}>
+                  <NavLink href="#products" className="navbar-modal-header">
+                    Products
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink
+                    href="/schedule-an-appointment"
+                    className="navbar-modal-header"
+                  >
+                    Schedule An Appointment
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink
+                    href="/make-a-payment"
+                    className="navbar-modal-header"
+                  >
+                    Make A Payment
+                  </NavLink>
+                </NavItem>
+              </Nav>
 
               <button
                 className="btn btn-danger rounded-pill btn-lg w-75 mt-5"
                 onClick={toggle}
               >
-                <a href="#contact">Contact</a>
+                Contact
               </button>
 
               <div className="row text-center mx-auto fixed-bottom text-darkred modal-footer">
                 <div className="col mx-1">
-                  <i class="fab fa-instagram fa-2x" />
+                  <i className="fab fa-instagram fa-2x" />
                   <br />
                   <small>Instagram</small>
                 </div>
                 <div className="col mx-1">
-                  <i class="fab fa-facebook-f fa-2x" />
+                  <i className="fab fa-facebook-f fa-2x" />
                   <br />
                   <small>Facebook</small>
                 </div>
@@ -81,26 +105,20 @@ const CCNavbar = () => {
             </ModalBody>
           </Div100vh>
         </Modal>
-        <Collapse isOpen={false} navbar>
+        <Collapse isOpen={false} navbar transition="false">
           <Nav className="ms-auto" navbar>
             <NavItem>
-              <NavLink href="#products" className="text-white" onClick={toggle}>
+              <NavLink href="#products" className="text-white">
                 Products
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink
-                className="text-white"
-                href="https://github.com/reactstrap/reactstrap"
-              >
+              <NavLink className="text-white" href="/schedule-an-appointment">
                 Schedule An Appointment
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink
-                className="text-white"
-                href="https://github.com/reactstrap/reactstrap"
-              >
+              <NavLink className="text-white" href="/make-a-payment">
                 Make A Payment
               </NavLink>
             </NavItem>

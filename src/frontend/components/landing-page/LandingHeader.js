@@ -18,6 +18,7 @@ const LandingHeader = () => {
               color="danger"
               size="lg"
               className="rounded-pill mx-auto col-8 col-md-6 col-lg-3 bg-darkred"
+              href="#contact-form"
             >
               Contact
             </Button>

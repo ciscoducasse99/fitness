@@ -8,6 +8,9 @@ import Loading from "./frontend/components/Loading";
 // and component works best with class components.
 const Landing = React.lazy(() => import("./frontend/pages/Landing.js"));
 const Dashboard = React.lazy(() => import("./frontend/pages/Dashboard"));
+const Login = React.lazy(() => import("./frontend/pages/Login"));
+const Payment = React.lazy(() => import("./frontend/pages/Payment"));
+const Appointment = React.lazy(() => import("./frontend/pages/Appointment"));
 
 const app = (
   <React.Suspense fallback={<Loading />}>
@@ -16,6 +19,13 @@ const app = (
         <Switch>
           <Route path="/" exact render={() => <Landing />} />
           <Route path="/dashboard" exact render={() => <Dashboard />} />
+          <Route path="/login" exact render={() => <Login />} />
+          <Route path="/make-a-payment" exact render={() => <Payment />} />
+          <Route
+            path="/schedule-an-appointment"
+            exact
+            render={() => <Appointment />}
+          />
         </Switch>
       </BrowserRouter>
     </React.StrictMode>

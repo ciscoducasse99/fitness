@@ -15,7 +15,10 @@ const Testimonials = () => {
     { img: t3, person: "Mara M.", time: "2 Months" },
     { img: t4, person: "Lucas M.", time: "3.5 Months" },
   ].map((image, i) => (
-    <div className="col-10 col-md-6 p-2 p-md-3 p-lg-5 mx-auto text-center">
+    <div
+      className="col-10 col-md-6 p-2 p-md-3 p-lg-5 mx-auto text-center"
+      key={image.person}
+    >
       <img
         alt={i}
         src={image.img}

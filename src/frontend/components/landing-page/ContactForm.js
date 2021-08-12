@@ -1,11 +1,51 @@
 import React from "react";
-import { Input } from "reactstrap";
+import { Form, Input } from "reactstrap";
+import customerForm from "../../helpers/customerForm";
 
 const ContactForm = () => {
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [phone, setPhone] = React.useState("");
+  const [msg, setMessage] = React.useState("");
+
+  const clearForm = () => {
+    setName("");
+    setEmail("");
+    setPhone("");
+    setMessage("");
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      if (name.length === 0) {
+        alert("Name is invalid");
+      } else if (email.length === 0) {
+        alert("Email is invalid");
+      } else if (phone.length === 0) {
+        alert("Phone is invalid");
+      } else {
+        const form = {
+          name,
+          email,
+          phone,
+          msg,
+        };
+
+        const response = await customerForm(form);
+        console.log("success: " + response);
+        clearForm();
+      }
+    } catch (error) {
+      console.log("fail: " + error);
+    }
+  };
+
   return (
-    <div className="contact-form-section mt-5" id="contact-form">
+    <div className="contact-form-section mt-5 d-block" id="contact-form">
       <div
-        className="col-11 border p-3 rounded-3 mx-auto pb-5 shadow "
+        className="col-11 col-md-6 border p-3 rounded-3 mx-auto pb-5 shadow h-50"
         style={{ background: "white" }}
       >
         <div className="text-center mb-3">
@@ -14,38 +54,48 @@ const ContactForm = () => {
             Fill out this form to get started.
           </small>
         </div>
-        <Input
-          type="text"
-          name="name"
-          placeholder="Name "
-          className="rounded-pill bg-light mb-4"
-          style={{ fontSize: "16px" }}
-        />
-        <Input
-          type="email"
-          name="email"
-          placeholder="Email"
-          className="rounded-pill bg-light mb-4"
-          style={{ fontSize: "16px" }}
-        />
-        <Input
-          type="text"
-          name="phone"
-          placeholder="Phone"
-          className="rounded-pill bg-light mb-4"
-          style={{ fontSize: "16px" }}
-        />
-        <Input
-          type="textarea"
-          name="text"
-          id="exampleText"
-          placeholder="Enter in a short message of what you want to achieve."
-          className="rounded-3 bg-light mb-5"
-          style={{ height: 200, fontSize: "16px" }}
-        />
-        <button className="btn btn-danger w-100 rounded-pill mx-auto mt-2 btn-lg">
-          Submit
-        </button>
+        <Form onSubmit={handleSubmit}>
+          <Input
+            type="text"
+            name="name"
+            placeholder="Name "
+            className="rounded-pill bg-light mb-4"
+            style={{ fontSize: "16px" }}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <Input
+            type="email"
+            name="email"
+            placeholder="Email"
+            className="rounded-pill bg-light mb-4"
+            style={{ fontSize: "16px" }}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <Input
+            type="text"
+            name="phone"
+            placeholder="Phone"
+            className="rounded-pill bg-light mb-4"
+            style={{ fontSize: "16px" }}
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
+          <Input
+            type="textarea"
+            name="text"
+            id="exampleText"
+            placeholder="Enter a short message of what you're looking for or what you wish to achieve."
+            className="rounded-3 bg-light mb-5"
+            style={{ height: 200, fontSize: "16px" }}
+            value={msg}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+          <button className="btn btn-danger w-100 rounded-pill mx-auto mt-2 btn-lg">
+            Submit
+          </button>
+        </Form>
       </div>
     </div>
   );

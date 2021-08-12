@@ -9,8 +9,8 @@ const Reasonings = () => {
           {/* <small className="text-center">
         https://dribbble.com/shots/15288754-Fitness-and-Workout-Trainers-Website/attachments/7042777?mode=media
       </small> */}
-          <div class="row g-5 py-4 text-center mx-auto">
-            <div class="col-md-4">
+          <div className="row g-5 py-4 text-center mx-auto">
+            <div className="col-md-4">
               <div>
                 <i className="fas fa-utensils fa-5x mb-4" />
               </div>
@@ -21,7 +21,7 @@ const Reasonings = () => {
                 going until we run out of words.
               </p>
             </div>
-            <div class="col-md-4">
+            <div className="col-md-4">
               <div>
                 <i className="fas fa-weight fa-5x mb-4" />
               </div>
@@ -32,7 +32,7 @@ const Reasonings = () => {
                 going until we run out of words.
               </p>
             </div>
-            <div class="col-md-4">
+            <div className="col-md-4">
               <div>
                 <i className="fas fa-dumbbell fa-5x mb-4" />
               </div>

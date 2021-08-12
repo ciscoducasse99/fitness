@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+productLinks.js
+/config/productArray.js
+text.txt
+puppeteer.js

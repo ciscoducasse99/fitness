@@ -1,14 +1,16 @@
+import React, { useEffect } from "react";
+
 import Div100vh from "react-div-100vh";
+import CCNavbar from "../components/landing-page/CCNavbar";
 import LandingHeader from "../components/landing-page/LandingHeader";
 import Reasonings from "../components/landing-page/Reasonings";
 import Quote1 from "../components/landing-page/Quote1";
-import "../styles/landing.scss";
-import React, { useEffect } from "react";
 import Testimonials from "../components/landing-page/Testimonials";
-import Footer from "../components/landing-page/Footer";
-import CCNavbar from "../components/landing-page/CCNavbar";
 import Products from "../components/landing-page/Products";
 import ContactForm from "../components/landing-page/ContactForm";
+import Footer from "../components/landing-page/Footer";
+
+import "../styles/landing.scss";
 
 const Landing = () => {
   useEffect(() => {
@@ -23,7 +25,6 @@ const Landing = () => {
       <LandingHeader />
       <Quote1 />
       <Reasonings />
-      {/* <HIW /> */}
       <Testimonials />
       <Products />
       <ContactForm />
