@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Collapse,
   Navbar,
@@ -18,6 +18,10 @@ const CCNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [navbar, setNavbar] = useState(false);
 
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
+
   const changeNavbar = () => {
     if (window.scrollY >= 60) {
       setNavbar(true);
@@ -27,10 +31,6 @@ const CCNavbar = () => {
   };
 
   window.addEventListener("scroll", changeNavbar);
-
-  const toggle = () => {
-    setIsOpen(!isOpen);
-  };
 
   return (
     <Navbar
@@ -60,10 +60,19 @@ const CCNavbar = () => {
             </ModalHeader>
             <ModalBody className="h-75 d-flex align-items-center justify-content-center flex-column">
               <Nav vertical className="text-center">
-                <NavItem onClick={toggle}>
-                  <NavLink href="#products" className="navbar-modal-header">
-                    Products
-                  </NavLink>
+                <NavItem
+                  className="navbar-modal-header"
+                  onClick={() => {
+                    const el = document.getElementById("products");
+                    if (el) {
+                      el.scrollIntoView(true);
+                    }
+                    setTimeout(() => {
+                      toggle();
+                    }, 650);
+                  }}
+                >
+                  Products
                 </NavItem>
                 <NavItem>
                   <NavLink
@@ -85,10 +94,28 @@ const CCNavbar = () => {
 
               <button
                 className="btn btn-danger rounded-pill btn-lg w-75 mt-5"
-                onClick={toggle}
+                onClick={() => {
+                  const el = document.getElementById("contact-form");
+                  const elRect = el.getBoundingClientRect();
+                  console.log(elRect);
+                  if (el) {
+                    el.scrollIntoView(true);
+                  }
+                  setTimeout(() => {
+                    toggle();
+                  }, 650);
+                }}
               >
                 Contact
               </button>
+
+              <a href="/login">
+                <div className="mx-auto text-center mt-5 text-darkred">
+                  <i className="fas fa-sign-in-alt fa-lg" />
+                  <br />
+                  <small>Admin Login</small>
+                </div>
+              </a>
 
               <div className="row text-center mx-auto fixed-bottom text-darkred modal-footer">
                 <div className="col mx-1">
@@ -120,6 +147,11 @@ const CCNavbar = () => {
             <NavItem>
               <NavLink className="text-white" href="/make-a-payment">
                 Make A Payment
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink className="text-white" href="/login">
+                Admin Login
               </NavLink>
             </NavItem>
           </Nav>

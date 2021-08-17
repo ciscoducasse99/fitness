@@ -43,35 +43,37 @@ const ProductModal = ({ isOpen, products, toggle }) => {
             onChange={searchProducts}
           />
         </InputGroup>
-
-        <div className="row g-0">
-          {
-            <small className="text-muted mb-2">
-              Displaying {searchResults.length} items
-            </small>
-          }
+        {
+          <small className="text-muted mb-2">
+            Displaying {searchResults.length} items
+          </small>
+        }
+        <div className="row">
           {searchResults.map((product) => {
             return (
-              <div
-                key={product.title}
-                className="col-6 col-lg-4 col-xl-3 mb-lg-2 px-1 px-sm-0"
-              >
+              <div key={product.title} className="col-6 col-lg-4 py-3">
                 <a
                   href={product.href}
                   target="__blank"
                   rel="noreferrer"
                   style={{ color: "black", textDecoration: "none" }}
                 >
-                  <LazyLoad>
-                    <div className="text-center">
+                  <div className="modal-product-image-wrapper  mx-auto">
+                    <LazyLoad>
                       <img
                         src={product.src}
                         alt={product.title}
-                        className="modal-product-image"
+                        className="modal-product-image border mb-2"
                       />
-                      <h6 className="text-truncate">{product.title}</h6>
-                    </div>
-                  </LazyLoad>
+                      <div className="img-overlay">
+                        <span className="p-1 font-weight-bold darkred-badge rounded-3">
+                          {product.price}
+                        </span>
+                      </div>
+                    </LazyLoad>
+
+                    <h6 className="text-truncate">{product.title}</h6>
+                  </div>
                 </a>
               </div>
             );

@@ -11,9 +11,9 @@ const LazyImage = ({ item }) => {
   };
 
   return (
-    <div className="product-image-wrapper mx-3 ">
+    <div className="product-image-wrapper mx-4 ">
       <div className="product-image-placeholder" ref={refPlaceholder} />
-      <LazyLoad style={{ width: "250px" }}>
+      <LazyLoad>
         <a
           href={item.href}
           target="__blank"
@@ -21,12 +21,17 @@ const LazyImage = ({ item }) => {
           className="d-block mx-auto"
         >
           <img
-            className="product-image mx-auto"
+            className="product-image mx-auto border rounded-3 mb-2"
             onLoad={removePlaceholder}
             onError={removePlaceholder}
             src={item.src}
             alt={item.src.length}
           />
+          <div className="img-overlay">
+            <span className="p-1 font-weight-bold darkred-badge rounded-3">
+              {item.price}
+            </span>
+          </div>
         </a>
       </LazyLoad>
 

@@ -6,9 +6,11 @@ router.post("/contactform", (req, res) => {
   const { firstName, lastName, email, msg } = req.body;
 
   try {
-    return firstName;
-  } catch (e) {
-    throw Error(e);
+    throw Error;
+    //res.status(201).json(req.body);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json({ message: err.message });
   }
 });
 

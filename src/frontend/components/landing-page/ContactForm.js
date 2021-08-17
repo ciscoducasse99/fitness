@@ -34,8 +34,12 @@ const ContactForm = () => {
         };
 
         const response = await customerForm(form);
-        console.log("success: " + response);
-        clearForm();
+        if (response.message === "success") {
+          clearForm();
+          console.log(response.message);
+        } else {
+          console.log(response.message);
+        }
       }
     } catch (error) {
       console.log("fail: " + error);

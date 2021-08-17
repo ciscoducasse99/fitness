@@ -10,3 +10,9 @@ app.listen(5000, () => {
 });
 
 // user authentication with JWT
+
+//The reason express session is used is to know if a browser has made a request to us before.
+//It’s like caller-ID, which you’d know about if you were alive in the 90's.
+
+// https://kelvinmwinuka.com/how-to-handle-password-reset-in-expressjs/
+// https://github.com/nfriedly/express-rate-limit (if i decide to use pin instead of password)
