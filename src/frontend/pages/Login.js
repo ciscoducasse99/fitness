@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 
 //https://code.tutsplus.com/tutorials/using-passport-with-sequelize-and-mysql--cms-27537%20
 //https://ui.dev/react-router-v5-protected-routes-authentication/
 
 const Login = ({ fakeAuth }) => {
-  const [redirectToReferrer, setRedirectToReferrer] = useState(false);
+  // const [redirectToReferrer, setRedirectToReferrer] = useState(false);
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [loginError, setLoginError] = useState(" ");
@@ -29,14 +29,14 @@ const Login = ({ fakeAuth }) => {
     console.log(loginInfo);
   };
 
-  const login = () =>
-    fakeAuth.authenticate(() => {
-      setRedirectToReferrer(true);
-    });
+  // const login = () =>
+  //   fakeAuth.authenticate(() => {
+  //     setRedirectToReferrer(true);
+  //   });
 
-  if (redirectToReferrer === true) {
-    return <Redirect to="/" />;
-  }
+  // if (redirectToReferrer === true) {
+  //   return <Redirect to="/" />;
+  // }
   return (
     <div className="login-page">
       <main className="container">
