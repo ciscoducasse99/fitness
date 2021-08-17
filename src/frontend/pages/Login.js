@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Redirect, Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 //https://code.tutsplus.com/tutorials/using-passport-with-sequelize-and-mysql--cms-27537%20
 //https://ui.dev/react-router-v5-protected-routes-authentication/
