@@ -22,6 +22,7 @@ const LazyImage = ({ item }) => {
         >
           <img
             className="product-image mx-auto border rounded-3 mb-2"
+            loading='lazy'
             onLoad={removePlaceholder}
             onError={removePlaceholder}
             src={item.src}

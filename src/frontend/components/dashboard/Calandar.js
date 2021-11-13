@@ -9,43 +9,35 @@ const Calandar = ({ time }) => {
     let curr = new Date();
     let week = [];
 
-    for (let i = 1; i <= 7; i++) {
+    console.log(curr.getDay());
+    for (let i = 0; i <= 6; i++) {
       let first = curr.getDate() - curr.getDay() + i;
       week.push(first);
     }
+
     setDaysInWeek(week);
+    // https://stackoverflow.com/questions/9100676/how-to-get-the-last-day-of-the-previous-month-in-javascript-or-jquery/37803823
+    // this sets the date to the last day of the month
   }, [setDaysInWeek]);
 
   const now = new Date();
   const today = days[now.getDay()];
 
-  var options = {
-    weekday: "short",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: true,
-  };
-  var prnDt = new Date().toLocaleTimeString("en-us", options);
-
-  console.log(prnDt);
-
   return (
-    <div className="mx-auto">
-      <div className="d-flex flex-row border rounded-3 text-center mx-auto">
-        {days.map((day, i) => {
-          return (
-            <div className="mx-2" key={i}>
-              {daysInWeek[i]}
-              <br />
-              <span className={today === day ? `text-danger` : ""}>{day}</span>
-            </div>
-          );
-        })}
-      </div>
+    // I need to add a time picker
+    <div className="d-flex flex-row border rounded-3 p-1 hover">
+      {days.map((day, i) => {
+        return (
+          <div
+            key={i}
+            className={today === day ? `text-danger mx-auto` : "mx-auto"}
+          >
+            <span>{daysInWeek[i]}</span>
+            <br />
+            <span>{day}</span>
+          </div>
+        );
+      })}
     </div>
   );
 };

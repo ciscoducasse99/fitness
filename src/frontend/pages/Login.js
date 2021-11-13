@@ -1,46 +1,55 @@
-import React, { useState, useEffect } from "react";
-// import { Redirect } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { useHistory } from "react-router-dom";
+import { authContext } from "../auth-context/authContext";
+import { handleAdminLogin } from "../api/admin-auth";
+import Div100vh from "react-div-100vh";
 
 //https://code.tutsplus.com/tutorials/using-passport-with-sequelize-and-mysql--cms-27537%20
 //https://ui.dev/react-router-v5-protected-routes-authentication/
 
-const Login = ({ fakeAuth }) => {
-  // const [redirectToReferrer, setRedirectToReferrer] = useState(false);
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
-  const [loginError, setLoginError] = useState(" ");
+// https://stackabuse.com/handling-authentication-in-express-js/
+// https://stackabuse.com/implementing-user-authentication-the-right-way/
 
+const Login = () => {
+  const { login } = useContext(authContext);
+  const [email, setEmail] = useState("admin1@email.com");
+  const [password, setPassword] = useState("testingadmin1");
+  const [loading, setLoading] = useState(false);
+
+  let history = useHistory();
   useEffect(() => {
     document.title = "Login - Coach Chris";
   }, []);
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-
-    if (!email || !password) {
-      setLoginError("Please correctly fill out form");
-      return 0;
-    }
-    const loginInfo = {
-      email,
-      password,
-    };
-
-    console.log(loginInfo);
-  };
-
-  // const login = () =>
-  //   fakeAuth.authenticate(() => {
-  //     setRedirectToReferrer(true);
+  // useEffect(() => {
+  //   console.log("checking for authed user");
+  //   checkAuthedUser().then((res) => {
+  //     if (res.status === 200) {
+  //       history.replace("/dashboard");
+  //     }
   //   });
 
-  // if (redirectToReferrer === true) {
-  //   return <Redirect to="/" />;
-  // }
+  //   console.log("checked");
+  // });
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const checkLoginStatus = await handleAdminLogin(email, password);
+
+    const { data } = checkLoginStatus;
+
+    if (data !== null) {
+      login(data);
+      history.replace("/dashboard");
+    }
+  };
+
   return (
-    <div className="login-page">
+    <Div100vh className="bg-dark">
       <main className="container">
-        <h1 className="gradient-text text-center mt-5">Coach Chris Training</h1>
+        {/* <h1 className="text-white text-center pt-5">Coach Chris Training</h1> */}
         <div className="col-sm-7 col-md-5 p-4 mt-5 login-card border rounded mx-auto shadow-sm bg-light">
           <div className="tab-content">
             <div
@@ -55,6 +64,7 @@ const Login = ({ fakeAuth }) => {
                   </label>
                   <input
                     type="type"
+                    value={email}
                     className="form-control rounded-pill text-left"
                     id="login-email"
                     placeholder="Enter your email.."
@@ -64,6 +74,7 @@ const Login = ({ fakeAuth }) => {
                     Password:
                   </label>
                   <input
+                    value={password}
                     type="password"
                     className="form-control rounded-pill"
                     id="login-password"
@@ -75,26 +86,27 @@ const Login = ({ fakeAuth }) => {
             </div>
           </div>
 
-          <small className="text-error small-text text-center">
-            {loginError}
-          </small>
           <div className="mt-3 text-center">
-            <button
-              className="my-2 rounded-pill btn btn-outline-primary px-5"
-              onClick={(e) => handleLogin(e)}
-            >
-              {" "}
-              Login{" "}
-            </button>
+            {loading ? (
+              <div
+                className="spinner-border text-danger text-center mx-auto my-2"
+                role="status"
+              >
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            ) : (
+              <button
+                className="my-2 rounded-pill btn btn-outline-primary px-5"
+                onClick={(e) => handleLogin(e)}
+              >
+                {" "}
+                Login{" "}
+              </button>
+            )}
           </div>
         </div>
       </main>
-      <footer className="fixed-bottom text-center">
-        <small>API services served by the team from</small>
-        <br />
-        {/* <img className="tmdb-logo" src={tmdb} alt="The Movie Database logo" /> */}
-      </footer>
-    </div>
+    </Div100vh>
   );
 };
 

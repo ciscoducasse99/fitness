@@ -19,8 +19,6 @@ const Landing = () => {
 
   // https://www.bradleymartyn.com/?r_done=1
 
-  console.log(new Date());
-
   return (
     <Div100vh>
       <CCNavbar />

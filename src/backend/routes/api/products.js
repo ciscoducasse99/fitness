@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const products = require("../../configs/productArray");
+const products = require("../../productArray");
 
 router.get("/", (req, res) => {
   try {

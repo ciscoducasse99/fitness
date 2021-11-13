@@ -1,16 +1,16 @@
 import React from "react";
 import { Form, Input } from "reactstrap";
-import customerForm from "../../helpers/customerForm";
+import { customerForm } from "../../api/customer-form";
 
 const ContactForm = () => {
-  const [name, setName] = React.useState("");
-  const [email, setEmail] = React.useState("");
+  const [firstname, setFirstname] = React.useState("");
+  const [lastname, setLastname] = React.useState("");
   const [phone, setPhone] = React.useState("");
   const [msg, setMessage] = React.useState("");
 
   const clearForm = () => {
-    setName("");
-    setEmail("");
+    setFirstname("");
+    setFirstname("");
     setPhone("");
     setMessage("");
   };
@@ -19,16 +19,16 @@ const ContactForm = () => {
     e.preventDefault();
 
     try {
-      if (name.length === 0) {
+      if (firstname.length === 0) {
         alert("Name is invalid");
-      } else if (email.length === 0) {
+      } else if (lastname.length === 0) {
         alert("Email is invalid");
       } else if (phone.length === 0) {
         alert("Phone is invalid");
       } else {
         const form = {
-          name,
-          email,
+          firstname,
+          lastname,
           phone,
           msg,
         };
@@ -62,20 +62,20 @@ const ContactForm = () => {
           <Input
             type="text"
             name="name"
-            placeholder="Name "
+            placeholder="First Name "
             className="rounded-pill bg-light mb-4"
             style={{ fontSize: "16px" }}
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={firstname}
+            onChange={(e) => setFirstname(e.target.value)}
           />
           <Input
-            type="email"
-            name="email"
-            placeholder="Email"
+            type="text"
+            name="lastname"
+            placeholder="Lastname..."
             className="rounded-pill bg-light mb-4"
             style={{ fontSize: "16px" }}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={lastname}
+            onChange={(e) => setLastname(e.target.value)}
           />
           <Input
             type="text"

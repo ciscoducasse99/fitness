@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Collapse,
   Navbar,
@@ -11,12 +11,16 @@ import {
   ModalHeader,
   ModalBody,
 } from "reactstrap";
+import { Link } from "react-router-dom";
 import "../../styles/landing.scss";
 import Div100vh from "react-div-100vh";
+import { authContext } from "../../auth-context/authContext";
 
 const CCNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [navbar, setNavbar] = useState(false);
+
+  const { user } = useContext(authContext);
 
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -109,13 +113,13 @@ const CCNavbar = () => {
                 Contact
               </button>
 
-              <a href="/login">
+              <Link to={user != null ? "/dashboard" : "/login"}>
                 <div className="mx-auto text-center mt-5 text-darkred">
                   <i className="fas fa-sign-in-alt fa-lg" />
                   <br />
                   <small>Admin Login</small>
                 </div>
-              </a>
+              </Link>
 
               <div className="row text-center mx-auto fixed-bottom text-darkred modal-footer">
                 <div className="col mx-1">
@@ -149,10 +153,11 @@ const CCNavbar = () => {
                 Make A Payment
               </NavLink>
             </NavItem>
+
             <NavItem>
-              <NavLink className="text-white" href="/login">
-                Admin Login
-              </NavLink>
+              <Link to={user != null ? "/dashboard" : "/login"}>
+                <NavLink className="text-white">Admin Login</NavLink>
+              </Link>
             </NavItem>
           </Nav>
         </Collapse>
