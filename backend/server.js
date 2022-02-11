@@ -11,7 +11,6 @@ const path = require("path");
 // IIFE
 (async () => {
   try {
-    console.log(knex.client.connectionSettings);
     // Acquiring Port to run server
     const { APP_PORT } = process.env;
     const port = process.env.PORT || APP_PORT;
