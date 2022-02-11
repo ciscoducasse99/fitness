@@ -9,7 +9,6 @@ require("dotenv").config({ path: __dirname + "/configs/dev-config.env" });
 const path = require("path");
 
 // IIFE
-
 (async () => {
   try {
     // Acquiring Port to run server
