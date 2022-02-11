@@ -13,19 +13,19 @@ function Stats() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    axios
-      .get("/api/dashboard")
-      .then((items) => {
-        console.log(items);
-        setItems(items.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setLoading(false);
-        alert(err);
-      });
-  });
+  // useEffect(() => {
+  //   axios
+  //     .get("/api/dashboard")
+  //     .then((items) => {
+  //       console.log(items);
+  //       setItems(items.data);
+  //       setLoading(false);
+  //     })
+  //     .catch((err) => {
+  //       setLoading(false);
+  //       alert(err);
+  //     });
+  // });
 
   return (
     <div className="mb-3 mx-2">
