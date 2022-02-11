@@ -1,71 +1,37 @@
 {
-  "name": "fitness",
-  "version": "0.1.0",
-  "private": true,
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Fitness app | backend",
+  "main": "backend/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "cd frontend && npm install && npm run build"
+  },
+  "author": "Cisco Ducasse",
+  "license": "ISC",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.12.0",
-    "@testing-library/react": "^11.2.6",
-    "@testing-library/user-event": "^12.8.3",
-    "axios": "^0.21.1",
+    "axios": "^0.24.0",
     "bcryptjs": "^2.4.3",
-    "body-parser": "^1.19.0",
-    "concurrently": "^6.0.2",
-    "connect-session-knex": "^2.1.0",
-    "cookie-parser": "^1.4.5",
+    "connect-session-knex": "^2.1.1",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "express-mysql-session": "^2.1.6",
-    "jsonwebtoken": "^8.5.1",
-    "knex": "^0.95.7",
-    "mysql2": "^2.2.5",
-    "node-sass": "^5.0.0",
-    "passport": "^0.4.1",
-    "passport-jwt": "^4.0.0",
+    "express-mysql-session": "^2.1.7",
+    "knex": "^0.95.14",
+    "lorem-ipsum": "^2.0.4",
+    "mysql2": "^2.3.3",
+    "passport": "^0.5.0",
     "passport-local": "^1.0.0",
-    "puppeteer": "^10.1.0",
-    "puppeteer-extra": "^3.1.18",
-    "puppeteer-extra-plugin-stealth": "^2.7.8",
-    "react": "^17.0.2",
-    "react-calendar": "^3.5.0",
-    "react-div-100vh": "^0.6.0",
-    "react-dom": "^17.0.2",
-    "react-lazyload": "^3.2.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
-    "reactstrap": "^8.9.0",
-    "user-agents": "^1.0.719",
-    "uuid": "^8.3.2",
-    "web-vitals": "^1.1.1"
-  },
-  "main": "src/backend/server.js",
-  "proxy": "http://localhost:5000/",
-  "scripts": {
-    "start": "node src/backend/server.js",
-    "server": "nodemon src/backend/server.js",
-    "client": "react-scripts start",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "user-agents": "^1.0.853",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "cheerio": "^1.0.0-rc.10",
-    "dotenv": "^8.2.0",
-    "jsdom": "^16.6.0"
+    "concurrently": "^7.0.0",
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.15"
   }
 }

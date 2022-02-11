@@ -1,0 +1,35 @@
+$dark-red: rgb(173, 12, 12);
+
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+.sidebar {
+  background: white;
+  height: 100%;
+  border-right: rgb(224, 224, 224) 1px solid;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  bottom: 0;
+
+  .bi-lg {
+    font-size: 1.7em;
+  }
+
+  .nav-item {
+    color: gray;
+
+    .nav-link .active {
+      color: $dark-red;
+    }
+  }
+}
+
+.sidebar-logo {
+  background-color: $dark-red;
+  color: whitesmoke;
+}
