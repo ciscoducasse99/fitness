@@ -1,2 +1,2 @@
-node_modules
-backend/configs/dev-config.env
+/node_modules
+ **/*.env
