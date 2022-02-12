@@ -12,6 +12,8 @@ const path = require("path");
 (async () => {
   try {
     console.log(knex.client.connectionSettings);
+    var environment = process.env.NODE_ENV;
+    console.log(environment);
     // Acquiring Port to run server
     const { APP_PORT } = process.env;
     const port = process.env.PORT || APP_PORT;
