@@ -78,7 +78,7 @@ const CCNavbar = () => {
                 >
                   Products
                 </NavItem>
-                <NavItem>
+                {/* <NavItem>
                   <NavLink
                     href="/schedule-an-appointment"
                     className="navbar-modal-header"
@@ -93,7 +93,7 @@ const CCNavbar = () => {
                   >
                     Make A Payment
                   </NavLink>
-                </NavItem>
+                </NavItem> */}
               </Nav>
 
               <button
@@ -143,7 +143,7 @@ const CCNavbar = () => {
                 Products
               </NavLink>
             </NavItem>
-            <NavItem>
+            {/* <NavItem>
               <NavLink className="text-white" href="/schedule-an-appointment">
                 Schedule An Appointment
               </NavLink>
@@ -158,7 +158,7 @@ const CCNavbar = () => {
               <Link to={user != null ? "/dashboard" : "/login"}>
                 <NavLink className="text-white">Admin Login</NavLink>
               </Link>
-            </NavItem>
+            </NavItem> */}
           </Nav>
         </Collapse>
       </div>
