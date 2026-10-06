@@ -27,7 +27,3 @@ I used sessions to authenticate him and only him to his dashboard. From there, h
 <img src="frontend/src/images/m-fitness5.jpg" alt="fitness-img" width="240px" height="500px" style="margin-bottom:20px; border-radius:10px;"/>
 
 #### Todos
-
-- Finalize Dashboard design/ routes
-- Create a 2FA system so people can securely schedule appointments
-- Create a socket.io chat where he can use a Google number to comminucate directly through the app instead of text
